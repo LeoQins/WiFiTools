@@ -1,0 +1,7 @@
+{
+  "IFACE": "wlan0",
+  "MON": "wlan0mon",
+  "BSSID": "AA:15:C2:8A:57:4D",
+  "CHANNEL": "1",
+  "SESSION": "wpa-lab"
+}
